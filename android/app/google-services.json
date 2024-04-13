@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "232558671060",
+    "project_id": "sociogram-ankit",
+    "storage_bucket": "sociogram-ankit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:232558671060:android:fa7938eb76e8c773ddb741",
+        "android_client_info": {
+          "package_name": "com.example.sociogram"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmomVAqfkVEA0lw0GgmUDyLDX4j_T_HZY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
