@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>CLIENT_ID</key>
+		<string>232558671060-am03dlfqbjfad14krvf7tnac5644ks1k.apps.googleusercontent.com</string>
+		<key>REVERSED_CLIENT_ID</key>
+		<string>com.googleusercontent.apps.232558671060-am03dlfqbjfad14krvf7tnac5644ks1k</string>
+		<key>API_KEY</key>
+		<string>AIzaSyD0s6wOtB4ggN5dyri8fxh7c8A3R7_uFaI</string>
+		<key>GCM_SENDER_ID</key>
+		<string>232558671060</string>
+		<key>PLIST_VERSION</key>
+		<string>1</string>
+		<key>BUNDLE_ID</key>
+		<string>com.example.sociogram</string>
+		<key>PROJECT_ID</key>
+		<string>sociogram-ankit</string>
+		<key>STORAGE_BUCKET</key>
+		<string>sociogram-ankit.appspot.com</string>
+		<key>IS_ADS_ENABLED</key>
+		<false></false>
+		<key>IS_ANALYTICS_ENABLED</key>
+		<false></false>
+		<key>IS_APPINVITE_ENABLED</key>
+		<true></true>
+		<key>IS_GCM_ENABLED</key>
+		<true></true>
+		<key>IS_SIGNIN_ENABLED</key>
+		<true></true>
+		<key>GOOGLE_APP_ID</key>
+		<string>1:232558671060:ios:c750399a82e96008ddb741</string>
+	</dict>
+</plist>
