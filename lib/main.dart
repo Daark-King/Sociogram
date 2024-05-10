@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:sociogram/state/auth/providers/auth_state_provider.dart';
 import 'package:sociogram/state/auth/providers/is_logged_in_provider.dart';
 import 'package:sociogram/state/providers/is_loading_provider.dart';
 import 'package:sociogram/views/components/loading/loading_screen.dart';
 import 'package:sociogram/views/login/login_view.dart';
+import 'package:sociogram/views/main/main_view.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -57,28 +57,5 @@ class MyApp extends StatelessWidget {
             }
           },
         ));
-  }
-}
-
-class MainView extends StatelessWidget {
-  const MainView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Center(child: Text('Main View')),
-      ),
-      body: Consumer(
-        builder: (_, ref, child) {
-          return TextButton(
-            onPressed: () async {
-              await ref.read(authStateProvider.notifier).logOut();
-            },
-            child: const Text('Sign out'),
-          );
-        },
-      ),
-    );
   }
 }
