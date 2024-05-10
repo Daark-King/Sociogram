@@ -20,6 +20,7 @@ class _MainViewState extends ConsumerState<MainView> {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: Color.fromARGB(255, 49, 51, 52),
           title: const Text(
             Strings.appName,
           ),
