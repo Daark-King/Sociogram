@@ -1,0 +1,4 @@
+enum DataSorting {
+  newestOnTop,
+  oldestOnTop,
+}
