@@ -1,4 +1,4 @@
-enum DataSorting {
+enum DateSorting {
   newestOnTop,
   oldestOnTop,
 }
