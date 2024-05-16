@@ -14,7 +14,6 @@ class DeleteCommentStateNotifier extends StateNotifier<IsLoading> {
   }) async {
     try {
       isLoading = true;
-
       final query = FirebaseFirestore.instance
           .collection(FirebaseCollectionName.comments)
           .where(
@@ -24,12 +23,13 @@ class DeleteCommentStateNotifier extends StateNotifier<IsLoading> {
           .limit(1)
           .get();
 
-      await query.then((query) async {
-        for (final doc in query.docs) {
-          await doc.reference.delete();
-        }
-      });
-
+      await query.then(
+        (query) async {
+          for (final doc in query.docs) {
+            await doc.reference.delete();
+          }
+        },
+      );
       return true;
     } catch (_) {
       return false;

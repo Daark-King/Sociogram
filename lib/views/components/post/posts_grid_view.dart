@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sociogram/state/posts/models/post.dart';
 import 'package:sociogram/views/components/post/post_thumbnail_view.dart';
+import 'package:sociogram/views/post_comments/post_comments_view.dart';
 
 class PostsGridView extends StatelessWidget {
   final Iterable<Post> posts;
