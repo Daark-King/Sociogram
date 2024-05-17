@@ -1,29 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:sociogram/state/posts/models/post.dart';
+import 'package:sociogram/state/comments/models/comment.dart';
 import 'package:sociogram/state/user_info/providers/user_info_model_provider.dart';
 import 'package:sociogram/views/components/animations/small_error_animation_view.dart';
 import 'package:sociogram/views/components/rich_two_parts_text.dart';
 
-class PostDisplayNameAndMessageView extends ConsumerWidget {
-  final Post post;
+class CompactCommentTile extends ConsumerWidget {
+  final Comment comment;
 
-  const PostDisplayNameAndMessageView({super.key, required this.post});
+  const CompactCommentTile({
+    super.key,
+    required this.comment,
+  });
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final userInfoModel = ref.watch(
+    final userInfo = ref.watch(
       userInfoModelProvider(
-        post.userId,
+        comment.fromUserId,
       ),
     );
-    return userInfoModel.when(
-      data: (userInfoModel) {
-        return Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: RichTwoPartsText(
-            leftPart: userInfoModel.displayName,
-            rightPart: post.message,
-          ),
+
+    return userInfo.when(
+      data: (userInfo) {
+        return RichTwoPartsText(
+          leftPart: userInfo.displayName,
+          rightPart: comment.comment,
         );
       },
       error: (error, stackTrace) {

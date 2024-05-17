@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sociogram/state/posts/models/post.dart';
 import 'package:sociogram/views/components/post/post_thumbnail_view.dart';
-import 'package:sociogram/views/post_comments/post_comments_view.dart';
+import 'package:sociogram/views/post_details/post_details_view.dart';
 
 class PostsGridView extends StatelessWidget {
   final Iterable<Post> posts;
@@ -24,7 +24,16 @@ class PostsGridView extends StatelessWidget {
         final post = posts.elementAt(index);
         return PostThumbnailView(
           post: post,
-          onTapped: () {},
+          onTapped: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => PostDetailsView(
+                  post: post,
+                ),
+              ),
+            );
+          },
         );
       },
     );
