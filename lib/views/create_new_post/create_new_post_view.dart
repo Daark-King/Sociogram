@@ -43,72 +43,75 @@ class _CreateNewPostViewState extends ConsumerState<CreateNewPostView> {
       postController.addListener(listener);
       return () => postController.removeListener(listener);
     }, [postController]);
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          Strings.createNewPost,
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.send),
-            onPressed: isPostButtonEnabled.value
-                ? () async {
-                    final userId = ref.read(userIdProvider);
-                    if (userId == null) {
-                      return;
-                    }
-                    final message = postController.text;
-                    final isUploaded =
-                        await ref.read(imageUploadProvider.notifier).upload(
-                              file: widget.fileToPost,
-                              fileType: widget.fileType,
-                              message: message,
-                              userId: userId,
-                              postSettings: postSettings,
-                            );
-                    if (isUploaded && mounted) {
-                      // ignore: use_build_context_synchronously
-                      Navigator.of(context).pop();
-                    }
-                  }
-                : null,
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            Strings.createNewPost,
           ),
-        ],
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            FileThumbnailView(
-              thumbnailRequest: thumbnailRequest,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextField(
-                decoration: const InputDecoration(
-                  labelText: Strings.pleaseWriteYourMessageHere,
-                ),
-                autofocus: true,
-                maxLines: null,
-                controller: postController,
-              ),
-            ),
-            ...PostSetting.values.map(
-              (postSetting) => ListTile(
-                title: Text(postSetting.title),
-                subtitle: Text(postSetting.description),
-                trailing: Switch(
-                  value: postSettings[postSetting] ?? false,
-                  onChanged: (isOn) {
-                    ref.read(postSettingProvider.notifier).setSetting(
-                          postSetting,
-                          isOn,
-                        );
-                  },
-                ),
-              ),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.send),
+              onPressed: isPostButtonEnabled.value
+                  ? () async {
+                      final userId = ref.read(userIdProvider);
+                      if (userId == null) {
+                        return;
+                      }
+                      final message = postController.text;
+                      final isUploaded =
+                          await ref.read(imageUploadProvider.notifier).upload(
+                                file: widget.fileToPost,
+                                fileType: widget.fileType,
+                                message: message,
+                                userId: userId,
+                                postSettings: postSettings,
+                              );
+                      if (isUploaded && mounted) {
+                        // ignore: use_build_context_synchronously
+                        Navigator.of(context).pop();
+                      }
+                    }
+                  : null,
             ),
           ],
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              FileThumbnailView(
+                thumbnailRequest: thumbnailRequest,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextField(
+                  decoration: const InputDecoration(
+                    labelText: Strings.pleaseWriteYourMessageHere,
+                  ),
+                  autofocus: true,
+                  maxLines: null,
+                  controller: postController,
+                ),
+              ),
+              ...PostSetting.values.map(
+                (postSetting) => ListTile(
+                  title: Text(postSetting.title),
+                  subtitle: Text(postSetting.description),
+                  trailing: Switch(
+                    value: postSettings[postSetting] ?? false,
+                    onChanged: (isOn) {
+                      ref.read(postSettingProvider.notifier).setSetting(
+                            postSetting,
+                            isOn,
+                          );
+                    },
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

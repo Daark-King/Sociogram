@@ -9,6 +9,7 @@ import 'package:sociogram/views/components/dialogs/alert_dialog_model.dart';
 import 'package:sociogram/views/components/dialogs/logout_dialog.dart';
 import 'package:sociogram/views/constants/strings.dart';
 import 'package:sociogram/views/create_new_post/create_new_post_view.dart';
+import 'package:sociogram/views/tabs/search/search_view.dart';
 import 'package:sociogram/views/tabs/users_posts/user_posts_view.dart';
 
 class MainView extends ConsumerStatefulWidget {
@@ -117,7 +118,7 @@ class _MainViewState extends ConsumerState<MainView> {
         body: const TabBarView(
           children: [
             UserPostsView(),
-            UserPostsView(),
+            SearchView(),
             UserPostsView(),
           ],
         ),
